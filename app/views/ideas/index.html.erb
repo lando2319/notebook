@@ -1,12 +1,7 @@
 <ul>
-<% @ideas.each do |idea| %>
-  <li>
-    <%= idea.description %>
-    <%= link_to image_tag('trash-can-icon.jpg', size: '20x20'), idea, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%= link_to image_tag('pencil.png', size: '20x20'), edit_idea_path(idea) %>
-  </li>
+<% @ideas.each do |this_idea| %>
+  <%= render 'idea_partial', :idea => this_idea %>
 <% end %>
 </ul>
-
 
 <%= render 'form' %>

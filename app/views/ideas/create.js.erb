@@ -1,3 +1,2 @@
-$('ul').append('<li><%= @idea.description %></li>');
-
-// edit this file to dynamically add new ideas
+$('ul').append("<%= escape_javascript(render 'idea_partial', :idea => @idea) %>");
+$('#idea_description').val('');

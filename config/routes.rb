@@ -2,5 +2,5 @@ Notebook::Application.routes.draw do
   resources :ideas
 
 
-  root to: 'pages#mockup'
+  root to: 'ideas#index'
 end
