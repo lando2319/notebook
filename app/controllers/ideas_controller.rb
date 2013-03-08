@@ -2,9 +2,8 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    @ideas = Idea.order("created_at asc")
     @idea = Idea.new
-
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,6 +36,11 @@ class IdeasController < ApplicationController
   # GET /ideas/1/edit
   def edit
     @idea = Idea.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # POST /ideas
@@ -63,7 +67,7 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       if @idea.update_attributes(params[:idea])
-        format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Idea was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
