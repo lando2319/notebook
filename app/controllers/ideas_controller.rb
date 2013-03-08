@@ -38,8 +38,8 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
 
     respond_to do |format|
-      format.html
-      format.js
+      format.html { render 'edit' }
+      format.js { render 'edit' }
     end
   end
 
@@ -67,6 +67,7 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       if @idea.update_attributes(params[:idea])
+        format.js
         format.html { redirect_to root_url, notice: 'Idea was successfully updated.' }
         format.json { head :no_content }
       else

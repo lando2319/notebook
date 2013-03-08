@@ -1,4 +1,4 @@
-<li>
+<li id="idea_<%= @idea.id %>_form">
 <%= form_for @idea, remote: true do |f| %>
   <%= f.text_field :description, placeholder: 'Add a new aha! here', size: 50 %>
 <% end %>
