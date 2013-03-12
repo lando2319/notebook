@@ -1,1 +1,5 @@
 $('#idea_<%= @idea.id %>_form').replaceWith('<%= j(render 'idea_partial', :idea => @idea) %>');
+
+<% publish_to '/ideas/update' do %>
+  $('#idea_<%= @idea.id %>').replaceWith('<%= j(render 'idea_partial', :idea => @idea) %>');
+<% end %>
