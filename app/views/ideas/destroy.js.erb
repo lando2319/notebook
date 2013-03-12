@@ -1,5 +1,6 @@
-$('#idea_<%= @idea.id %>').slideUp(500, function() {
-  $('#idea_<%= @idea.id %>').remove();
-});
-
+<% publish_to '/ideas/destroy' do %>
+  $('#idea_<%= @idea.id %>').slideUp(500, function() {
+    $('#idea_<%= @idea.id %>').remove();
+  });
+<% end %>
 // $('#idea_<%= @idea.id %>').box2d({'y-velocity':10});
