@@ -1,4 +1,6 @@
-$('ul').append("<%= escape_javascript(render 'idea_partial', :idea => @idea) %>");
-$('#idea_<%= @idea.id %>').hide();
-$('#idea_<%= @idea.id %>').slideDown();
-$('#idea_description').val('');
+<% publish_to '/ideas/new' do %>
+  $('ul').append("<%= escape_javascript(render 'idea_partial', :idea => @idea) %>");
+  $('#idea_<%= @idea.id %>').hide();
+  $('#idea_<%= @idea.id %>').slideDown();
+  $('#idea_description').val('');
+<% end %>
